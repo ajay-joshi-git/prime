@@ -1,9 +1,24 @@
-Execute  PrimeClientRunner (This is Socket client) ; you have to run Server App(RandomizerRunner) first and then run this.
-Server app also starts distributed queue. 
-
+Steps:
+	Execute RandomizerRunner.java (server socket) first [In randomizer project]
+	Then execute PrimeClientRunner.java (socket client). [In this project]
+	Randomizer will also starts queue thread.
 
 Flow :
-- An randomizer thread generate prime and put random number to Input blocking queue
-- Queue thread take number from in-queue - [process it]* - and put result to out-queue
-- Printer thread print payload to console
-*Process it - means send to client and get result 
+  - An randomizer thread generate prime and put random number to Input blocking queue
+  - Queue thread take number from in-queue - [process it]* - and put result to out-queue
+  - Printer thread print payload to console.
+  *Process it - means send to client and get result 
+
+Expected o/p:
+
+Starting randomizer and distributed queue....
+Starting queue..
+Started.
+Random number [21518027] is a prime number
+Random number [1848046472] is not a prime number
+..
+
+Starting Prime...
+Randomizer sent number [21518027]
+Randomizer sent  number [1848046472]
+..
